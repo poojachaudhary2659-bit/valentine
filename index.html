@@ -7,103 +7,139 @@
     body {
       margin: 0;
       height: 100vh;
-      background: linear-gradient(to bottom right, #ff9a9e, #fad0c4);
-      font-family: "Comic Sans MS", cursive, sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
       overflow: hidden;
+      color: #fff;
     }
+
     .card {
-      background: rgba(255, 255, 255, 0.25);
-      backdrop-filter: blur(10px);
-      padding: 40px;
+      background: rgba(255,255,255,0.25);
+      padding: 45px 55px;
       border-radius: 30px;
       text-align: center;
-      width: 420px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 2;
     }
-    h1 { color: #fff; font-size: 34px; margin-bottom: 10px; }
-    p { color: #fff; font-size: 18px; margin: 8px 0; }
-    .question { font-size: 26px; margin: 25px 0; color: #fff; }
+
+    h1 {
+      font-size: 2.4em;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.2em;
+      margin-bottom: 25px;
+    }
+
     button {
       padding: 12px 30px;
+      font-size: 1.1em;
       border: none;
       border-radius: 30px;
-      font-size: 18px;
       cursor: pointer;
-      margin: 10px;
+      transition: 0.3s;
     }
-    #yesBtn { background: #ff4d6d; color: white; }
+
+    #yesBtn {
+      background: #ff3366;
+      color: white;
+      margin-right: 15px;
+    }
+
+    #yesBtn:hover {
+      transform: scale(1.1);
+    }
+
     #noBtn {
       background: white;
-      color: #ff4d6d;
-      position: relative;
+      color: #ff3366;
+      position: absolute;
     }
-    .result { display: none; color: white; }
-    .result img {
-      width: 260px;
-      border-radius: 25px;
-      margin-bottom: 20px;
+
+    .heart {
+      position: absolute;
+      animation: float 5s linear infinite;
     }
-    .hearts {
-      position: fixed;
-      bottom: -10px;
-      animation: float 6s linear infinite;
-      font-size: 20px;
-    }
+
     @keyframes float {
-      0% { transform: translateY(0); opacity: 1; }
-      100% { transform: translateY(-100vh); opacity: 0; }
+      0% {
+        transform: translateY(100vh) scale(0.8);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1.3);
+        opacity: 0;
+      }
     }
   </style>
 </head>
-
 <body>
-  <div class="card" id="card">
-    <h1>Hey Ashwin 💕</h1>
-    <p>From the moment you came into my life,</p>
-    <p>you made everything more beautiful ✨</p>
-    <p><b>And I love you a lot 💖</b></p>
-    <div class="question">Will you be my Valentine? 💘</div>
 
-    <button id="yesBtn" onclick="sayYes()">YES 💞</button>
+  <div class="card">
+    <h1>Hey Ashwin 💕</h1>
+    <p>
+      From the moment you came into my life,<br>
+      you made everything more beautiful ✨<br>
+      <b>And I love you a lot 💖</b>
+    </p>
+    <h2>Will you be my Valentine? 💘</h2>
+    <button id="yesBtn" onclick="yesClicked()">YES 💞</button>
     <button id="noBtn" onmouseover="moveNo()">No 🙈</button>
   </div>
 
-  <div class="card result" id="result">
-    <!-- NEW Cute & Excited Cat GIF -->
-    <img src="https://media.giphy.com/media/mlvseq9yvZhba/giphy.gif" alt="Excited Cat" width="260">
-
-    <h1>YAYYYY 😍💖</h1>
-    <p>Ashwin, from this decision you have made my life more beautiful.</p>
-    <p>Thank you for choosing me 💕</p>
-    <p style="margin-top:20px;">Happy Valentine’s Day, my pumpkin 🎃💖</p>
-  </div>
-
-<script>
-  function sayYes() {
-    document.getElementById("card").style.display = "none";
-    document.getElementById("result").style.display = "block";
-    createHearts();
-  }
-  function moveNo() {
-    const btn = document.getElementById("noBtn");
-    btn.style.left = Math.random() * 200 - 100 + "px";
-    btn.style.top = Math.random() * 200 - 100 + "px";
-  }
-  function createHearts() {
-    for (let i = 0; i < 30; i++) {
-      const heart = document.createElement("div");
-      heart.className = "hearts";
-      heart.innerHTML = "💖";
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
-      document.body.appendChild(heart);
-      setTimeout(() => heart.remove(), 6000);
+  <script>
+    function moveNo() {
+      const noBtn = document.getElementById("noBtn");
+      const x = Math.random() * (window.innerWidth - 120);
+      const y = Math.random() * (window.innerHeight - 60);
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
     }
-  }
-</script>
+
+    function yesClicked() {
+      document.body.innerHTML = `
+        <div style="
+          display:flex;
+          flex-direction:column;
+          justify-content:center;
+          align-items:center;
+          height:100vh;
+          text-align:center;
+          background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+          font-family:'Comic Sans MS', cursive;
+          color:white;
+          overflow:hidden;
+        ">
+          <img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif" 
+               alt="Excited" 
+               style="width:280px;border-radius:20px;margin-bottom:20px;">
+          <h1>YAYYYY 😍💖</h1>
+          <p style="font-size:1.3em; max-width:600px;">
+            Ashwin, from this decision you have made my life more beautiful.<br>
+            Thank you for choosing me 💕
+          </p>
+          <h2>Happy Valentine’s Day, my pumpkin 🎃💖</h2>
+        </div>
+      `;
+    }
+
+    // LOTS of floating hearts
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerHTML = ["💖","💘","💞","❤️","💕"][Math.floor(Math.random()*5)];
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = Math.random() * 25 + 20 + "px";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }, 200);
+  </script>
 
 </body>
 </html>
