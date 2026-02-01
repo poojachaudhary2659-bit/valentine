@@ -14,7 +14,6 @@
       align-items: center;
       overflow: hidden;
     }
-
     .card {
       background: rgba(255, 255, 255, 0.25);
       backdrop-filter: blur(10px);
@@ -24,25 +23,9 @@
       width: 420px;
       box-shadow: 0 20px 40px rgba(0,0,0,0.2);
     }
-
-    h1 {
-      color: #fff;
-      font-size: 34px;
-      margin-bottom: 10px;
-    }
-
-    p {
-      color: #fff;
-      font-size: 18px;
-      margin: 8px 0;
-    }
-
-    .question {
-      font-size: 26px;
-      margin: 25px 0;
-      color: #fff;
-    }
-
+    h1 { color: #fff; font-size: 34px; margin-bottom: 10px; }
+    p { color: #fff; font-size: 18px; margin: 8px 0; }
+    .question { font-size: 26px; margin: 25px 0; color: #fff; }
     button {
       padding: 12px 30px;
       border: none;
@@ -51,36 +34,19 @@
       cursor: pointer;
       margin: 10px;
     }
-
-    #yesBtn {
-      background: #ff4d6d;
-      color: white;
-    }
-
+    #yesBtn { background: #ff4d6d; color: white; }
     #noBtn {
       background: white;
       color: #ff4d6d;
       position: relative;
     }
-
-    .result {
-      display: none;
-      color: white;
-    }
-
-    .result img {
-      width: 260px;
-      border-radius: 25px;
-      margin-bottom: 20px;
-    }
-
+    .result { display: none; color: white; }
     .hearts {
       position: fixed;
       bottom: -10px;
       animation: float 6s linear infinite;
       font-size: 20px;
     }
-
     @keyframes float {
       0% { transform: translateY(0); opacity: 1; }
       100% { transform: translateY(-100vh); opacity: 0; }
@@ -89,14 +55,11 @@
 </head>
 
 <body>
-
   <div class="card" id="card">
     <h1>Hey Ashwin 💕</h1>
-
     <p>From the moment you came into my life,</p>
     <p>you made everything more beautiful ✨</p>
     <p><b>And I love you a lot 💖</b></p>
-
     <div class="question">Will you be my Valentine? 💘</div>
 
     <button id="yesBtn" onclick="sayYes()">YES 💞</button>
@@ -104,11 +67,11 @@
   </div>
 
   <div class="card result" id="result">
-    <!-- Lovey-Dovey Cute GIF -->
-   <img src="https://i.gifer.com/7efs.gif" alt="Cute Lovey-Dovey GIF" width="260">
+    <!-- Working Lovey GIF Embed -->
+    <iframe src="https://giphy.com/embed/3ohs4yjbJ9r4a2wVgE" width="260" height="260" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+    <p><a href="https://giphy.com/gifs/3ohs4yjbJ9r4a2wVgE" style="color:white; text-decoration:none;">via GIPHY</a></p>
 
     <h1>YAYYYY 😍💖</h1>
-
     <p>Ashwin, from this decision you have made my life more beautiful.</p>
     <p>Thank you for choosing me 💕</p>
 
@@ -123,13 +86,11 @@
     document.getElementById("result").style.display = "block";
     createHearts();
   }
-
   function moveNo() {
     const btn = document.getElementById("noBtn");
     btn.style.left = Math.random() * 200 - 100 + "px";
     btn.style.top = Math.random() * 200 - 100 + "px";
   }
-
   function createHearts() {
     for (let i = 0; i < 30; i++) {
       const heart = document.createElement("div");
@@ -138,7 +99,6 @@
       heart.style.left = Math.random() * 100 + "vw";
       heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
       document.body.appendChild(heart);
-
       setTimeout(() => heart.remove(), 6000);
     }
   }
@@ -146,4 +106,3 @@
 
 </body>
 </html>
-
