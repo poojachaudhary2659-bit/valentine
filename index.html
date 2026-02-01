@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Be My Valentine 💖</title>
+
   <style>
     body {
       margin: 0;
@@ -35,6 +36,11 @@
     p {
       font-size: 1.2em;
       margin-bottom: 25px;
+      line-height: 1.5;
+    }
+
+    h2 {
+      margin-bottom: 25px;
     }
 
     button {
@@ -65,6 +71,7 @@
     .heart {
       position: absolute;
       animation: float 5s linear infinite;
+      pointer-events: none;
     }
 
     @keyframes float {
@@ -79,6 +86,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <div class="card">
@@ -88,7 +96,9 @@
       you made everything more beautiful ✨<br>
       <b>And I love you a lot 💖</b>
     </p>
+
     <h2>Will you be my Valentine? 💘</h2>
+
     <button id="yesBtn" onclick="yesClicked()">YES 💞</button>
     <button id="noBtn" onmouseover="moveNo()">No 🙈</button>
   </div>
@@ -116,39 +126,41 @@
           color:white;
           overflow:hidden;
         ">
-          <img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif" 
-               alt="Excited" 
+          <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif"
                style="width:280px;border-radius:20px;margin-bottom:20px;">
+
           <h1>YAYYYY 😍💖</h1>
-          <p style="font-size:1.3em; max-width:600px;">
+
+          <p style="font-size:1.3em; max-width:650px;">
             Ashwin, from this decision you have made my life more beautiful.<br>
             Thank you for choosing me 💕
           </p>
+
           <h2>Happy Valentine’s Day, my pumpkin 🎃💖</h2>
         </div>
       `;
     }
 
-    // LOTS of floating hearts
+    /* floating hearts */
     setInterval(() => {
       const heart = document.createElement("div");
       heart.className = "heart";
       heart.innerHTML = ["💖","💘","💞","❤️","💕"][Math.floor(Math.random()*5)];
       heart.style.left = Math.random() * 100 + "vw";
-      heart.style.fontSize = Math.random() * 25 + 20 + "px";
+      heart.style.fontSize = Math.random() * 30 + 18 + "px";
       document.body.appendChild(heart);
       setTimeout(() => heart.remove(), 5000);
-    }, 200);
+    }, 180);
   </script>
-<!-- Background Romantic Music -->
-<iframe
-  width="0"
-  height="0"
-  src="https://www.youtube.com/embed/YwY0Jf0Yk-o?autoplay=1&loop=1&playlist=YwY0Jf0Yk-o"
-  frameborder="0"
-  allow="autoplay">
-</iframe>
+
+  <!-- 🎵 Background Song: Young Forever -->
+  <iframe
+    width="0"
+    height="0"
+    src="https://www.youtube.com/embed/6M6samPEMpM?autoplay=1&loop=1&playlist=6M6samPEMpM"
+    frameborder="0"
+    allow="autoplay">
+  </iframe>
 
 </body>
 </html>
-
